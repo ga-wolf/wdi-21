@@ -1,0 +1,119 @@
+/*
+Position
+Static Relative Absolute Fixed
+
+Static
+- Wherever an element is meant to be, that's where it is
+
+Relative
+- Starts off at the static position
+- Leaves the element in the document flow
+  - Changes to the elements position does not affect other elements
+- Gives access to top, right, bottom, left and z-index
+- Slight UI-based animations, overlapping elements
+
+Absolute
+- Starts at the top left of the closest non-static positioned parent (typically the browser window)
+- Removes the element from the document flow
+- Good for precise animations, landing pages, placing elements in exact positions
+- Not great at responsive stuff
+
+Fixed
+- Removes elements from the document flow
+- Refers to the browser window
+- Elements will scroll with the page
+  - If you want an element to stay on the screen, use this.
+- Fixed navigation bars, back to top buttons, menu items are always accessible
+*/
+
+body {
+  font-family: 'Space Mono', monospace;
+  min-height: 10000px;
+  margin: 0;
+}
+
+p.billCaption {
+  position: relative;
+  top: -28px;
+}
+
+button.rel-anim {
+  background: #ffffff;
+  border: 3px solid #0000ff;
+  border-radius: 5px;
+  outline: none;
+  color: #0000ff;
+  padding: 10px 20px;
+  font-size: 25px;
+  position: relative;
+  top: 0px;
+  cursor: pointer;
+  transition: top 0.5s;
+}
+
+.rel-anim:hover {
+  top: 5px;
+}
+
+.absolute {
+  width: 100px;
+  height: 100px;
+  background: rebeccapurple;
+  position: absolute;
+  top: 100px;
+  left: 50px;
+}
+
+.landing-page {
+  background-image: url(https://unsplash.it/g/1200/1000);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+
+.landing-page h1 {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+}
+
+header {
+  height: 80px;
+  width: 100%;
+  position: relative;
+  background: lightslategray;
+}
+
+.box {
+  height: 50px;
+  width: 50px;
+  background: red;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+/* Fixed Navigation */
+
+nav.nav-bar {
+  width: 100%;
+  height: 100px;
+  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* BACK TO TOP BUTTON */
+
+.back-to-top {
+  width: 50px;
+  height: 50px;
+  background: green;
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+}

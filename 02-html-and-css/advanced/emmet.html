@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- tagname + TAB -->
+  <div></div>
+  <p></p>
+  <a href=""></a>
+  <img src="" alt="">
+
+  <!-- div.container -->
+  <div class="container"></div>
+  <!-- div.column.half-width -->
+  <div class="column half-width"></div>
+  <!-- img#bill -->
+  <img src="" alt="" id="bill">
+  <!-- p#mainParagraph.fancy -->
+  <p id="mainParagraph" class="fancy"></p>
+
+  <!-- tag{TEXT} + TAB -->
+  <!-- h1{Hello World} -->
+  <h1>Hello World</h1>
+  <!-- p{Some paragraph} -->
+  <p>Some paragraph</p>
+
+  <!-- tag[attrName="attrValue"] + TAB -->
+  <!-- a[href="https://ga.co"] -->
+  <a href="https://ga.co"></a>
+
+  <!-- a[href="https://ga.co"]{General Assembly} -->
+  <a href="https://ga.co">General Assembly</a>
+
+  <!-- Siblings === tag+tag -->
+  h1+a
+  <h1></h1>
+  <a href=""></a>
+
+  <!-- header+div.container+footer -->
+  <header></header>
+  <div class="container"></div>
+  <footer></footer>
+
+  <!-- Children === tag>tag -->
+  <!-- header>h1 -->
+  <header>
+    <h1></h1>
+  </header>
+
+  <!-- div>p>a -->
+  <div>
+    <p><a href=""></a></p>
+  </div>
+
+  <!-- ul>li -->
+  <ul>
+    <li></li>
+  </ul>
+
+  <!-- Multiple Elements === elem*3 -->
+  <!-- p*3 -->
+  <p></p>
+  <p></p>
+  <p></p>
+
+  <!-- div>h2*2 -->
+  <div>
+    <h2></h2>
+    <h2></h2>
+  </div>
+
+  <!-- ul>li*5 -->
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <!-- ul>li*3>a -->
+  <ul>
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+  </ul>
+
+  <!-- Group operator === () -->
+  <!-- (header>h1)+(div>p*3) -->
+  <header>
+    <h1></h1>
+  </header>
+  <div>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+
+  <!-- (header>img)+(div.container>h1)+(footer>ul>li*3) -->
+  <header><img src="" alt=""></header>
+  <div class="container">
+    <h1></h1>
+  </div>
+  <footer>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </footer>
+
+  <!-- ul>li.item$*5 -->
+  <ul>
+    <li class="item1"></li>
+    <li class="item2"></li>
+    <li class="item3"></li>
+    <li class="item4"></li>
+    <li class="item5"></li>
+  </ul>
+
+</body>
+</html>

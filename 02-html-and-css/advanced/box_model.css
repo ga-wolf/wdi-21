@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  /* Width typically is set, and then it changes when padding and border is added. Border Box box sizing makes sure that the width includes padding and border */
+}
+
+body * {
+  border: 1px solid black;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: monospace;
+}
+
+h1 {
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  border: 10px solid black;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background: lightslategray;
+  border: none;
+}
+
+p {
+  margin-top: 20px;
+}
+
+.layout {
+  padding: 10px;
+  background: salmon;
+}
+
+.half.first-half {
+  width: 50%;
+  border: 10px solid black;
+  padding: 10px;
+}
+
+.half {
+  border: none;
+  width: 50%;
+  float: left;
+  min-height: 200px;
+  background: ghostwhite;
+}
+
+.half:nth-child(odd) {
+  background: papayawhip;
+}
+
+.clear {
+  margin-top: 10px;
+  clear: both;
+}
+
+/*
+BLOCK - Spreads out and doesn't let anyone else sit next to them
+INLINE-BLOCK - Person with Personal Space
+INLINE - Friendly Dog || Friendly Cat
+NONE - Uber
+
+Do you need to set heights and widths? If you do, use BLOCK or INLINE-BLOCK
+
+Do you need elements to sit next to each other? If you do, use INLINE or INLINE-BLOCK
+*/

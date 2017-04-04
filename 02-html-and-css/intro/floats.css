@@ -1,0 +1,38 @@
+.container {
+  margin-top: 20px;
+  padding: 5px;
+  background-color: salmon;
+}
+
+.col {
+  min-height: 50px;
+  width: 20%;
+  float: left;
+  background-color: black;
+}
+
+.col.red {
+  background-color: red;
+}
+
+.clear {
+  clear: both;
+}
+
+.container-two {
+  /*overflow: hidden;*/
+}
+
+.first, .second, .third, .fourth {
+  float: left;
+  width: 25%;
+  min-height: 30px;
+}
+
+.first, .third {
+  background-color: black;
+}
+
+.second, .fourth {
+  background-color: white;
+}

@@ -24,6 +24,10 @@ p.normal {
   color: rebeccapurple;
 }
 
+/* The width of an element is the content width + the padding + the border */
+
+/* 300 + 10 + 10 */
+
 .bill {
   transform: rotate(0deg);
   width: 300px;
@@ -54,6 +58,145 @@ pre {
   border-radius: 5px;
 }
 
-* {
-  color: peachpuff;
+div h3 {
+  color: red;
 }
+
+h1, h6 {
+  color: blue;
+}
+
+h4#spec {
+  color: yellow;
+}
+
+h4.spec {
+  color: green;
+}
+
+h4 {
+  color: black;
+}
+
+pre, code {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/*
+BOX MODEL IS MADE UP OF 4 THINGS:
+
+Content Width and Height
+
+Padding
+- Making an element bigger
+- Putting space between the content and the border
+- Pushes content away from the edges
+
+Border
+
+Margin
+- To increase space between elements
+- To move other elements away
+*/
+
+pre {
+  padding: 20px 20px 20px 20px;
+  border: 10px solid black;
+  margin: 20px 20px 20px 20px;
+}
+
+/*
+DISPLAY PROPERTY
+- How an element interacts with other elements
+
+BLOCK
+- This element takes up the whole width, you can set widths and heights
+- Won't let any other element sit next to it
+
+INLINE
+- Will let other elements sit next to it
+- You can't set widths and heights
+- The element will only take the space it needs
+
+NONE
+- The element no longer takes up any space in the document flow
+
+INLINE-BLOCK
+- Allows elements to sit next to each other
+- You can set heights and widths
+*/
+
+span {
+  background: yellow;
+  width: 100px;
+  display: block;
+  display: inline-block;
+  display: inline;
+  display: none;
+}
+
+.layout {
+  background: peachpuff;
+  min-height: 100px;
+}
+
+.left {
+  min-height: 100px;
+  width: 50%;
+  display: inline-block;
+  background: lightslategray;
+}
+
+.right {
+  min-height: 100px;
+  width: 50%;
+  display: inline-block;
+  background: tomato;
+}
+
+.second-layout {
+  min-height: 100px;
+  background-color: dodgerblue;
+}
+
+.second-layout div {
+  width: 25%;
+  min-height: 50px;
+  background-color: black;
+  display: inline-block;
+}
+
+.second-layout .two, .second-layout .four {
+  background-color: ghostwhite;
+}
+
+div.third-layout {
+  background-color: salmon;
+  padding: 15px;
+}
+
+.third-layout .first-col {
+  height: 300px;
+  background: green;
+  width: 50%;
+  float: left;
+}
+
+.third-layout .second-col {
+  height: 200px;
+  background: yellow;
+  width: 50%;
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+
+/*<div class="third-layout">
+  <div class="first-col"></div>
+  <div class="second-col"></div>
+</div>*/
