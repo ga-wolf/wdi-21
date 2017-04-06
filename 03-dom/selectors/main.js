@@ -187,3 +187,38 @@ console.log(currentClasses);
 
 dynamicDiv.classList.add("none");
 dynamicDiv.classList.remove("none");
+
+
+
+
+
+
+// DOM Traversal (Selection of Elements)
+  // document.getElementById("id")
+  // document.querySelector("CSS SELECTOR")
+    // Returns null or a DOM node
+  // document.querySelectorAll("CSS SELECTOR")
+  // document.getElementsByTagName("tag")
+  // document.getElementsByClassName("class")
+    // Returns a DOM collection
+
+// Working with a DOM node
+  // ANY_DOM_NODE.innerHTML
+  // ANY_DOM_NODE.innerHTML = "Something else"
+  // ANY_DOM_NODE.innerHTML += "Appending"
+  // ANY_DOM_NODE.getAttribute("attributeName")
+  // ANY_DOM_NODE.setAttribute("attributeName", "attributeValue")
+  // ANY_DOM_NODE.classList
+  // ANY_DOM_NODE.classList.add("CLASS_TO_ADD")
+  // ANY_DOM_NODE.classList.remove("CLASS_TO_REMOVE")
+  // ANY_DOM_NODE.style
+  // ANY_DOM_NODE.style.color = "SOMETHING"
+  // ANY_DOM_NODE.style.textAlign = "SOMETHING"
+
+// Creating DOM Nodes
+  // Create, Manipulate, Inject
+
+  // var p = document.createElement("p");
+  // p.innerHTML = "SOMETHING";
+  // document.body.appendChild(p);
+  // ANY_DOM_NODE.appendChild(p);
