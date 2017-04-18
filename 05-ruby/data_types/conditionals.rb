@@ -70,3 +70,37 @@ when "Chico"
 else
   puts "You are someone else"
 end
+
+marx_bro = "Gummo"
+case marx_bro
+when "Harpo" then puts "You are Harpo"
+when "Groucho" then puts "You were great in Duck Soup"
+when "Gummo" then puts "That mirror scene, wow"
+end
+
+
+name = "Matt"
+
+# We want to create a var called role. When name is Kane, make it Teacher's Assistant, when it is Wolf, make it Random Dude, when it is Hayley, make it Course Producer, otherwise, make it student
+role =  case name
+        when "Kane" then "Teacher's Assistant"
+        when "Wolf" then "Random Dude"
+        when "Hayley" then "Course Producer"
+        when "Olivia" then "Student Experience Coordinator"
+        else
+          "Student"
+        end
+
+p role
+
+puts true && true # => true
+puts true && false # => false
+
+puts true || false # => true
+puts false || false # => false
+
+puts 42 > 13 && 50 < 60 # => true
+puts 42 < 13 || true # => true
+
+puts !false # => true
+puts !true  # => false
