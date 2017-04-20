@@ -1,0 +1,15 @@
+<h1>A list of all Users in the system</h1>
+
+<p>User One: <%= @user_one %></p>
+<p>User Two: <%= @user_two %></p>
+<p>User Three: <%= @user_three %></p>
+
+<%= p @users %>
+
+<% @users.each do |u| %>
+  <p>
+    <a href="/users/<%= u %>">
+      <%= u %>
+    </a>
+  </p>
+<% end %>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our User Application</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/users">All Users</a>
+    <a href="/search">Search</a>
+  </nav>
+
+  <!-- Dynamic content to be loaded here -->
+  <hr>
+    <%= yield %>
+    <!-- Echoing ERB Delimiter -->
+  <hr>
+
+</body>
+</html>

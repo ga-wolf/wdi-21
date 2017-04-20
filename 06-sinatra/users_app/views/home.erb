@@ -1,0 +1,25 @@
+<h1>Welcome to our App</h1>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis corporis delectus tempore fugiat sint dolore quam cumque laudantium aut, provident magni facere magnam distinctio quod rerum reprehenderit, voluptas, nihil pariatur!</p>
+
+<!-- I can write a mix of HTML and Ruby code (if that code is within delimiters) in any ERB (embedded ruby) file -->
+
+<%= 42 ** 42 %>
+<!-- Echoing delimiters -->
+
+<% 42 ** 42 %>
+<!-- Non-echoing delimiters (whatever is evaluated never reaches the browser) -->
+
+<% ["a", "b", "c", "d", "e"].each do |letter| %>
+
+  <p>
+    Current Letter: <%= letter %>
+  </p>
+
+<% end %>
+
+<ul>
+  <% (1..10).to_a.each do |num| %>
+    <li>Current Number: <%= num %></li>
+  <% end %>
+</ul>
