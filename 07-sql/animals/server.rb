@@ -100,8 +100,27 @@ post "/animals/:id" do
   image = params["i"]
 
   # UPDATE animals SET species = '___', description = '___', image = '___' WHERE id == ___
-  sql = "UPDATE animals SET species = '___', description = '___', image = '___' WHERE id == ___"
+  sql = "UPDATE animals SET species = '#{species}', description = '#{description}', image = '#{image}' WHERE id == #{id}"
 
-  binding.pry
-  "There was a post request"
+  db = SQLite3::Database.new("database.db")
+  db.results_as_hash = true
+  db.execute( sql )
+  db.close
+
+  redirect("/animals/#{id}")
+end
+
+get "/animals/:id/delete" do
+  # We need to get the ID out of the URL
+  id = params["id"]
+  # We need to connect to the database
+  db = SQLite3::Database.new("database.db")
+  # We need to delete the animal with a certain ID
+    # DELETE FROM animals WHERE id == ___
+  sql = "DELETE FROM animals WHERE id == #{id}"
+  db.execute(sql)
+  # We need to close the database connection
+  db.close
+  # Redirect back to the list of all animals
+  redirect("/animals")
 end

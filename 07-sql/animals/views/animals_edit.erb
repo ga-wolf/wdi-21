@@ -6,16 +6,16 @@
 <form action="/animals/<%= @animal['id'] %>" method="post">
   <p>
     <label>Species:</label>
-    <input type="text" name="s" placeholder="Species">
+    <input type="text" name="s" placeholder="Species" value="<%= @animal['species'] %>">
   </p>
   <!-- CMND + SHIFT + D -->
   <p>
     <label>Description:</label>
-    <input type="text" name="d" placeholder="Description">
+    <input type="text" name="d" placeholder="Description" value="<%= @animal['description'] %>">
   </p>
   <p>
     <label>Image:</label>
-    <input type="text" name="i" placeholder="Image">
+    <input type="text" name="i" placeholder="Image" value="<%= @animal['image'] %>">
   </p>
   <input type="submit" value="Create Animal">
 </form>

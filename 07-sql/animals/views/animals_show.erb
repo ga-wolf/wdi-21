@@ -9,7 +9,8 @@
 </p>
 
 <p>
-  Image: <%= @animal["image"] %>
+  Image:
+  <img src="<%= @animal['image'] %>">
 </p>
 
 
@@ -19,5 +20,8 @@
 <div class="controls">
   <a href="/animals/<%= @animal['id'] %>/edit">
     Edit this animal
+  </a>
+  <a href="/animals/<%= @animal['id'] %>/delete">
+    Delete this animal
   </a>
 </div>
