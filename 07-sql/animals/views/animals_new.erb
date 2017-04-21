@@ -1,0 +1,25 @@
+<h2>Create an Animal</h2>
+
+<!--
+  With a form:
+    The action - which path do you want to communicate with
+    The method - which HTTP method do you want to use
+    Anything that we want to store in params, must have a name attribute
+-->
+
+<form action="/animals" method="post">
+  <p>
+    <label>Species:</label>
+    <input type="text" name="species" placeholder="Species">
+  </p>
+  <!-- CMND + SHIFT + D -->
+  <p>
+    <label>Description:</label>
+    <input type="text" name="description" placeholder="Description">
+  </p>
+  <p>
+    <label>Image:</label>
+    <input type="text" name="image" placeholder="Image">
+  </p>
+  <input type="submit" value="Create Animal">
+</form>

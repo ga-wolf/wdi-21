@@ -1,0 +1,21 @@
+<h2>Edit an animal</h2>
+
+<%= @animal %>
+
+<!-- The update form will go here -->
+<form action="/animals/<%= @animal['id'] %>" method="post">
+  <p>
+    <label>Species:</label>
+    <input type="text" name="s" placeholder="Species">
+  </p>
+  <!-- CMND + SHIFT + D -->
+  <p>
+    <label>Description:</label>
+    <input type="text" name="d" placeholder="Description">
+  </p>
+  <p>
+    <label>Image:</label>
+    <input type="text" name="i" placeholder="Image">
+  </p>
+  <input type="submit" value="Create Animal">
+</form>

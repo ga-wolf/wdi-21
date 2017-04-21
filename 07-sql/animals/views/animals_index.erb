@@ -1,0 +1,11 @@
+<h1>This should show all of our animals</h1>
+
+<% @all_animals.each do |animal| %>
+
+  <p>
+    <a href="/animals/<%= animal['id'] %>">
+      <%= animal["species"] %>
+    </a>
+  </p>
+
+<% end %>
