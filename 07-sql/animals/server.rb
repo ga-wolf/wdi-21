@@ -11,12 +11,15 @@ require "sqlite3"
 # Add a table into the database
   # Make a migration
 # Insert a few records into that table
+  # Seeding the database (adding dummy data)
 # READ STEP - /animals
 # CREATE STEP - /animals/new
 # UPDATE STEP - /animals/:id/edit
 # DELETE STEP - /animals/:id/delete
 
 get "/" do
+  binding.pry
+  
   erb(:home) # Go get views/home.erb
 end
 
