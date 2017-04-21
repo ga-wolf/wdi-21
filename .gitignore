@@ -149,10 +149,10 @@ build/Release
 */*.zip
 *.log
 */*.log
-*.sql
-*/*.sql
-*.sqlite
-*/*.sqlite
+*.db
+*/*.db
+*.db
+*/*.db
 .opt-in
 */.opt-in
 */logs
