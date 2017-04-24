@@ -7,9 +7,23 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="<%= params['controller'] %>">
 
     <h1>Our Intro App</h1>
+
+    <nav>
+      <a href="/home">Home</a>
+      <a href="/about">About</a>
+      <a href="/random">Random Colour</a>
+
+      <a href="/auto/green">Green Car</a>
+      <a href="/auto/2142/12512">HP and Torque</a>
+
+      <a href="/calc/4/+/2">4 + 2</a>
+      <a href="/calc/8/-/12">8 - 12</a>
+      <a href="/calc/8/*/12">8 * 12</a>
+      <a href="/calc/18/divide/6">18 / 6</a>
+    </nav>
 
     <hr>
     <%= yield %>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
                # "controller#action"
   get "/home" => "pages#home"
+
     # For a GET request to /home
       # I want to go into the pages_controller.rb
       # I want to run the home method defined in PagesController
@@ -12,4 +13,12 @@ Rails.application.routes.draw do
 
   # In the case that someone makes a GET request to /about, I want to run the pages controller about method
   get "/about" => "pages#about"
+
+  get "/random" => "pages#random"
+
+  get "/auto/:color" => "auto#color"
+    # params = { "color" => ______ }
+  get "/auto/:hp/:torque" => "auto#car_details"
+
+  get "/calc/:first_num/:operation/:second_num" => "calc#arithmetic"
 end
