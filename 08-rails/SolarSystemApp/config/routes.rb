@@ -7,4 +7,10 @@ Rails.application.routes.draw do
                 # controller#action
   get "/home" => "pages#home"
 
+  # CRUD System for planets
+
+  get '/planets' => 'planets#index'
+  get '/planets/new' => 'planets#new'
+  get '/planets/:id' => 'planets#show'
+
 end
