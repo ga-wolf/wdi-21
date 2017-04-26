@@ -1,5 +1,29 @@
 <h2>Create a Planet Form</h2>
 
+<form action="/planets" method="POST">
+  <!-- p*5>label+input -->
+  <p>
+    <label for="">Name:</label>
+    <input type="text" name="planet[name]">
+  </p>
+  <p>
+    <label for="">Image:</label>
+    <input type="url" name="planet[image]">
+  </p>
+  <p>
+    <label for="">Orbit:</label>
+    <input type="number" name="planet[orbit]">
+  </p>
+  <p>
+    <label for="">Moons:</label>
+    <input type="number" name="planet[moons]">
+  </p>
+  <p>
+    <label for="">Diameter:</label>
+    <input type="number" name="planet[diameter]">
+  </p>
+  <input type="submit" value="Create Planet">
+</form>
 <!--
 Have a form tag
 - method - HTTP verb to use

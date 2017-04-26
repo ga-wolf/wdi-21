@@ -8,9 +8,11 @@
   Planet Orbit: <%= @planet.orbit %>
 </p>
 
-<p>
-  Planet Image: <%= @planet.image %>
-</p>
+<% if @planet.image %>
+  <p>
+    Planet Image: <img src="<%= @planet.image %>">
+  </p>
+<% end %>
 
 <p>
   Planet Diameter: <%= @planet.diameter %>
@@ -19,3 +21,12 @@
 <p>
   Planet Moons: <%= @planet.moons %>
 </p>
+
+<div class="controls">
+  <a href="/planets/<%= @planet.id %>/edit">
+    Edit this planet
+  </a>
+
+  <%= button_to "Destroy this Planet", "/planets/#{@planet.id}/delete", method: :delete %>
+
+</div>

@@ -1,2 +1,31 @@
-<h1>Planets#edit</h1>
-<p>Find me in app/views/planets/edit.html.erb</p>
+<h2>Edit a Planet Form</h2>
+
+<%= @planet.to_json %>
+
+<!--
+Edit form is the same as the new form, with a slightly different URL (it should have an ID in it), and prefilled values
+-->
+
+<form action="/planets/<%= @planet.id %>" method="POST">
+  <p>
+    <label for="">Name:</label>
+    <input type="text" name="planet[name]" value="<%= @planet.name %>">
+  </p>
+  <p>
+    <label for="">Image:</label>
+    <input type="url" name="planet[image]" value="<%= @planet.image %>">
+  </p>
+  <p>
+    <label for="">Orbit:</label>
+    <input type="number" name="planet[orbit]" value="<%= @planet.orbit %>">
+  </p>
+  <p>
+    <label for="">Moons:</label>
+    <input type="number" name="planet[moons]" value="<%= @planet.moons %>">
+  </p>
+  <p>
+    <label for="">Diameter:</label>
+    <input type="number" name="planet[diameter]" value="<%= @planet.diameter %>">
+  </p>
+  <input type="submit" value="Edit Planet">
+</form>
