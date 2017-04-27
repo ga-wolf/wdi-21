@@ -1,0 +1,31 @@
+<h1>Create a new Artist</h1>
+
+<!--
+Secure - authenticity tokens
+Reusable
+Easier to add prefilled values
+-->
+
+<%= form_for @artist do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :nationality %>
+    <%= f.text_field :nationality %>
+  </p>
+  <p>
+    <%= f.label :period %>
+    <%= f.text_field :period %>
+  </p>
+  <p>
+    <%= f.label :image %>
+    <%= f.url_field :image %>
+  </p>
+  <p>
+    <%= f.label :dob %>
+    <%= f.date_field :dob %>
+  </p>
+  <%= f.submit %>
+<% end %>
