@@ -12,3 +12,15 @@
   <%= link_to("Edit Artist", "/artists/#{@artist.id}/edit") %>
   <%= link_to("Delete Artist", "/artists/#{@artist.id}", method: :delete, data: { confirm: "Are you sure?" }) %>
 </div>
+
+<!--
+Loop through all of the works that this artist has created (and print out their titles)
+ -->
+
+<h3>Artist Works</h3>
+
+<% @artist.works.each do |work| %>
+  <p>
+    <%= link_to(work.title, work_path(work)) %>
+  </p>
+<% end %>

@@ -1,6 +1,8 @@
 <h1><%= @work.title %></h1>
 
-<%= image_tag(@work.image) %>
+<% if @work.image %>
+  <%= image_tag(@work.image) %>
+<% end %>
 
 <p>Year: <%= @work.year %></p>
 
@@ -10,5 +12,15 @@
 
 <div class="controls">
   <%= link_to("Edit this work", edit_work_path(@work)) %>
-  Delete this Work
+  <%= link_to("Delete this work", work_path(@work), method: :delete, data: { confirm: "Are you sure?" }) %>
 </div>
+
+<p>
+  <%= @work.artist.to_json %>
+</p>
+
+<p>
+  Artist Name:
+  <%#= @work.artist.name %>
+  <%= link_to(@work.artist.name, "/artists/#{@work.artist_id}") %>
+</p>

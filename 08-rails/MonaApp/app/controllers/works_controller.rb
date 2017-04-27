@@ -7,6 +7,7 @@ class WorksController < ApplicationController
   def show
     # Find one work
     @work = Work.find_by(id: params["id"])
+    # raise "hell"
   end
 
   def new
@@ -27,14 +28,20 @@ class WorksController < ApplicationController
 
   def update
     # Handles the submission of a form
+    work = Work.find_by(id: params["id"])
+    work.update( work_params() )
+    redirect_to work_path(work)
   end
 
   def destroy
     # Deletes a particular record
+    work = Work.find_by(id: params["id"])
+    work.destroy
+    redirect_to works_path()
   end
 
   private
     def work_params
-      params.require(:work).permit(:title, :year, :medium, :style, :image)
+      params.require(:work).permit(:title, :year, :medium, :style, :image, :artist_id)
     end
 end

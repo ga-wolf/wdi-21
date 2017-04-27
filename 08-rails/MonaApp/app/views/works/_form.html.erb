@@ -19,5 +19,14 @@
     <%= f.label :image %>
     <%= f.url_field :image %>
   </p>
+
+  <p>
+    <%= f.label :artist_id %>
+    <%= f.collection_select(:artist_id, Artist.all, :id, :name) %>
+  </p>
+  <!--
+  We should be able to select which Artist created a work
+  - We need to store the artist_id of whatever the user selected
+  -->
   <%= f.submit %>
 <% end %>
