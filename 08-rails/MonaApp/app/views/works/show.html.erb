@@ -1,0 +1,14 @@
+<h1><%= @work.title %></h1>
+
+<%= image_tag(@work.image) %>
+
+<p>Year: <%= @work.year %></p>
+
+<p>Medium: <%= @work.medium %></p>
+
+<p>Style: <%= @work.style %></p>
+
+<div class="controls">
+  <%= link_to("Edit this work", edit_work_path(@work)) %>
+  Delete this Work
+</div>

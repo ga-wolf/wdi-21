@@ -1,2 +1,25 @@
-<h1>Artists#edit</h1>
-<p>Find me in app/views/artists/edit.html.erb</p>
+<h1>Edit Artist</h1>
+
+<%= form_for @artist, url: "/artists/#{@artist.id}" do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :nationality %>
+    <%= f.text_field :nationality %>
+  </p>
+  <p>
+    <%= f.label :period %>
+    <%= f.text_field :period %>
+  </p>
+  <p>
+    <%= f.label :image %>
+    <%= f.url_field :image %>
+  </p>
+  <p>
+    <%= f.label :dob %>
+    <%= f.date_field :dob %>
+  </p>
+  <%= f.submit %>
+<% end %>

@@ -20,3 +20,22 @@ salvador = Artist.create({
 })
 
 puts "Artist Count: #{ Artist.all.count }"
+
+Work.destroy_all
+
+w1 = Work.create({
+  title: "The Flight of the Dragonfly In Front of the Sun",
+  year: '1968',
+  medium: 'Oil on Canvas',
+  style: 'Abstract',
+  image: 'http://www.joan-miro.net/images/paintings/the-flight-of-the-dragonfly-in-front-of-the-sun.jpg'
+})
+w2 = Work.create({
+  title: "The Persistence of Memory",
+  year: "1931",
+  medium: "Oil on Canvas",
+  style: "Abstract",
+  image: "https://uploads5.wikiart.org/images/salvador-dali/the-persistence-of-memory-1931.jpg"
+})
+
+puts "Work Count: #{Work.all.count}"

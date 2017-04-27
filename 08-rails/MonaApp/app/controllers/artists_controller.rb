@@ -19,6 +19,24 @@ class ArtistsController < ApplicationController
   end
 
   def edit
+    @artist = Artist.find_by(id: params["id"])
+      # Prefill values
+      # Reuse the new form
+  end
+
+  def update
+    # Use the URL to find the right Artist
+    artist = Artist.find_by(id: params["id"])
+    # Enforce a structure of the params, and restrict the values that can be sent. Add that into the database
+    artist.update( artist_strong_params() )
+    # Make a new GET request to /artists/:id
+    redirect_to "/artists/#{artist.id}"
+  end
+
+  def destroy
+    artist = Artist.find_by(id: params["id"])
+    artist.destroy
+    redirect_to "/artists"
   end
 
   private

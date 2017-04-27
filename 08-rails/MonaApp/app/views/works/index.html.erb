@@ -1,0 +1,10 @@
+<h1>All Works</h1>
+
+<% @all_works.each do |work| %>
+  <p>
+    <%#= link_to(work.title, "/works/#{work.id}") %>
+    <%#= link_to( work.title, work_path(work.id) ) %>
+    <%= link_to( work.title, work_path(work) ) %>
+    <%#= link_to( work.title, work ) %>
+  </p>
+<% end %>
