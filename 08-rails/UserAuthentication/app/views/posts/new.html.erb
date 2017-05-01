@@ -1,0 +1,14 @@
+<h1>Create Post</h1>
+
+<%= form_for @post do |f| %>
+  <p>
+    <%= f.label :heading %>
+    <%= f.text_field :heading, required: true %>
+  </p>
+  <p>
+    <%= f.label :content %>
+    <%= f.text_area :content, required: true %>
+  </p>
+
+  <%= f.submit %>
+<% end %>

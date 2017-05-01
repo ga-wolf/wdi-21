@@ -10,3 +10,9 @@ p u1.password_digest
 p u2.password_digest
   # Bono would be proud that we are encrypting his password
 p u3.password_digest
+
+Post.destroy_all
+
+p1 = Post.create(heading: "Post One", content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi porro at incidunt, nostrum quasi consectetur architecto debitis, temporibus tempore eveniet in quis veritatis! Nostrum aliquid, rem enim, beatae nesciunt quos!", user_id: u1.id)
+p2 = Post.create(heading: "Post Two", content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi porro at incidunt, nostrum quasi consectetur architecto debitis, temporibus tempore eveniet in quis veritatis! Nostrum aliquid, rem enim, beatae nesciunt quos!", user_id: u2.id)
+p3 = Post.create(heading: "Post Three", content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi porro at incidunt, nostrum quasi consectetur architecto debitis, temporibus tempore eveniet in quis veritatis! Nostrum aliquid, rem enim, beatae nesciunt quos!", user_id: u3.id)
