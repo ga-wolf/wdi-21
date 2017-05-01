@@ -13,6 +13,12 @@
 - Create a join (sneaky) table sitting in the middle of two tables
   - It needs to be in alphabetical order
   - Both tables names need to be plural
-  - genres_songs , characters_movies , players_sports
+  - genres_songs , characters_movies , players_sports , playlists_songs
 - It doesn't need an ID, it doesn't need a model
 - Tell Active Record about the association
+
+# Has many through Association
+
+- You need two existing associations
+  - What associations am I using?
+  - What do I need to access?

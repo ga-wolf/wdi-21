@@ -131,6 +131,19 @@ puts "Genre Count: #{ Genre.count }"
 s12.genres << g4
 s4.genres << g2 << g6
 
+# Try and access all of Pink's genres (go through the songs association) - print out the count
+puts "Pink Genre Count: #{ pink.genres.count }"
+puts "Pink Unique Genre Count: #{ pink.genres.uniq.count }"
+
+# Loop through all of Pink's genres and show the current genre's name
+pink.genres.each do |genre|
+  puts "Current Genre: #{ genre.name }"
+end
+
+pink.genres.uniq.each do |genre|
+  puts "Current Genre: #{ genre.name } (unique)"
+end
+
 # some_genre.songs
 # some_genre.songs.count
 # some_genre.songs.each
@@ -139,10 +152,18 @@ s4.genres << g2 << g6
 # some_song.genres.count
 # some_song.genres.each
 
-puts "G6 Song Count: _____"
+puts "G6 Song Count: #{ g6.songs.count }"
 
 # Loop through G7 songs, and print out the Song Names
 
-puts "S12 Genres: _____"
+g7.songs.each do |song|
+  puts "Song Name: #{ song.name }"
+end
 
-# Loop through S12 genres, and print out the Genre Names
+puts "S12 Genre Count: #{ s12.genres.count }"
+
+# Loop through S4 genres, and print out the Genre Names
+
+s4.genres.each do |g|
+  puts "Genre Name: #{g.name}"
+end
