@@ -1,3 +1,15 @@
+var showSingleMessage = function ( id ) {
+  $.ajax({
+    url: "/messages/" + id,
+    method: "GET",
+    dataType: "JSON"
+  }).done(function ( message ) {
+    console.log( message );
+    // Generate some HTML here
+  });
+};
+
+
 var fetchAllMessages = function () {
 
   $.ajax({

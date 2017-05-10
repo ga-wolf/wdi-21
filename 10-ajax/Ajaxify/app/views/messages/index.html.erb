@@ -2,6 +2,6 @@
 
 <% @all_messages.each do |msg| %>
   <p>
-    <%= msg.content %>
+    <%= link_to(msg.content, "/messages/#{msg.id}") %>
   </p>
 <% end %>
