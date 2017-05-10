@@ -12,4 +12,15 @@ class PagesController < ApplicationController
     render text: ` fortune -s `
   end
 
+  def uptime
+    render json: { uptime: ` uptime ` }
+  end
+
+  def lotto_numbers
+    res = {
+      numbers: (1..45).to_a.sample( 7 )
+    }
+    render json: res
+  end
+
 end
