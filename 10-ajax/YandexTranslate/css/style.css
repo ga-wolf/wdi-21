@@ -1,0 +1,14 @@
+body {
+  text-align: center;
+  font-family: monospace;
+}
+
+textarea, button {
+  display: block;
+  margin: 30px auto;
+}
+
+a {
+  display: block;
+  margin: 50px auto;
+}
