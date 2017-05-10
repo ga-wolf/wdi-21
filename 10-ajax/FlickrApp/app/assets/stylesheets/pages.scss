@@ -1,0 +1,19 @@
+body {
+  text-align: center;
+  font-family: monospace;
+}
+
+input {
+  display: block;
+  margin: 10px auto;
+}
+
+#searchFlickr {
+  padding: 10px 20px;
+  width: 50%;
+}
+
+.results img {
+  height: 200px;
+  max-width: 100%;
+}
