@@ -90,3 +90,58 @@ var searchLibraries = _.groupBy(jsLibraries, function (lib) {
   return lib[0];
 });
 console.log( searchLibraries );
+
+var emails = [ "groucho@ga.co", "harpo@ga.co", "zeppo@ga.co" ];
+
+var allGAEmails = _.every( emails, function ( email ) {
+  return email.endsWith("@ga.co");
+});
+
+console.log( allGAEmails );
+
+var nums = [ 1, 2, 3, 4, 5 ];
+console.log( _.contains(nums, 3) );
+console.log( _.contains(nums, 10) );
+
+var stooges = [
+  {name: 'moe', age: 40},
+  {name: 'larry', age: 50},
+  {name: 'curly', age: 60}
+];
+
+console.log(
+  _.pluck( stooges, 'name' )
+);
+console.log(
+  _.pluck( stooges, 'age' )
+);
+console.log(
+  _.max(stooges, 'age')
+);
+
+var nums = [ 1, 2, 3, 4, 5, 6 ];
+
+console.log(
+  _.shuffle( nums )
+);
+console.log(
+  _.sample( nums )
+);
+console.log(
+  _.sample( nums, 2 )
+);
+
+var nums = [ 1, 2, 3, 4, 5 ];
+var evenAndOdds = _.countBy( nums, function ( number ) {
+  if ( number % 2 === 0 ) {
+    return "even";
+  } else {
+    return "odd";
+  }
+});
+console.log( evenAndOdds );
+
+var libraryCount = _.countBy( jsLibraries, function (lib) {
+  return lib[0];
+});
+console.log( libraryCount );
