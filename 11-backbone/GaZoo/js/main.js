@@ -423,5 +423,138 @@ var GenericView = Backbone.View.extend({
   }
 });
 
-var gv = new GenericView();
-gv.render();
+// var gv = new GenericView();
+// gv.render();
+
+var deleteAnimal = function ( animalName ) {
+  var animal = gaZoo.findWhere({
+    type: animalName
+  });
+  gaZoo.remove( animal );
+};
+
+var ZooView = Backbone.View.extend({
+  el: "#app",
+    // this.el - document.querySelector("#app")
+    // this.$el - $("#app")
+
+  events: {
+    'click button': 'deleteAnimal',
+    'click h1': 'clickedHeading',
+    'click li': 'showAnimal'
+  },
+
+  deleteAnimal: function ( e ) {
+    // Figure out which list item was clicked
+    var $clickedButton = $( e.currentTarget );
+    // Get the type of animal
+    var $li = $clickedButton.parent();
+    var type = $li.text();
+    type = type.replace("Delete", "");
+    // Use the deleteAnimal function to remove that particular animal from the collection
+    deleteAnimal( type );
+  },
+
+  showAnimal: function ( event ) {
+    var $clickedItem = $( event.currentTarget );
+    $clickedItem.css({
+      background: "hotpink"
+    });
+    // Eventually we are going to go to the show page
+  },
+
+  clickedHeading: function () {
+    console.log("The heading was clicked");
+  },
+
+  initialize: function () {
+    console.log( "A new instance of ZooView was created" );
+    this.listenTo( this.collection, 'add', this.render );
+    this.listenTo( this.collection, 'remove', this.render );
+  },
+
+  render: function () {
+    this.$el.html( "<h1>The animals in our zoo</h1>" );
+
+    var $animalList = $("<ul></ul>");
+
+    this.collection.each(function ( animal ) {
+      var type = animal.get("type");
+      var $animalListItem = $("<li></li>");
+      $animalListItem.text( type );
+      $animalListItem.append("<button>Delete</button>");
+      $animalList.append( $animalListItem );
+    });
+
+    this.$el.append( $animalList );
+  }
+});
+
+var zv = new ZooView({
+  collection: gaZoo
+});
+zv.render();
+
+gaZoo.add([
+  { type: "Stink Badger" },
+  { type: "Horse" },
+  { type: "Blue ring Octopus" }
+]);
+
+gaZoo.add({
+  type: "Duck"
+});
+
+console.clear();
+
+var AnimalView = Backbone.View.extend({
+  // el, events, initialize, render, ...
+  el: "#app",
+
+  initialize: function () {
+    var view = this;
+    view.listenTo( this.model, 'change', this.render );
+  },
+
+  render: function () {
+    var animal = this.model;
+    var type = animal.get("type");
+
+    this.$el.html("<h1>" + type + "</h1>");
+  }
+});
+
+gaZoo.add({ type: "Quokka" });
+var quokka = gaZoo.findWhere({ type: "Quokka" });
+console.log( quokka );
+
+var av = new AnimalView({
+  model: quokka
+});
+// Think of the object that you pass when you instantiate a view as instance variables being passed from a controller into a view in Rails
+
+av.render();
+
+var horse = gaZoo.findWhere({ type: "Horse" });
+var horseView = new AnimalView({
+  model: horse // This will be accessible in the view as this.model
+});
+
+var ErrorView = Backbone.View.extend({
+  el: "#app",
+
+  render: function () {
+    this.$el.html("<h1>Something went wrong</h1>");
+  }
+});
+
+var ev = new ErrorView();
+ev.render();
+
+
+
+// Song model
+// Playlist Collection
+
+// PlaylistView
+  // This should update if the collection of songs changes (add or remove)
