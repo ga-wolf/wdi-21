@@ -460,6 +460,7 @@ var ZooView = Backbone.View.extend({
     $clickedItem.css({
       background: "hotpink"
     });
+    router.navigate( "/animals/1", true );
     // Eventually we are going to go to the show page
   },
 
@@ -490,10 +491,10 @@ var ZooView = Backbone.View.extend({
   }
 });
 
-var zv = new ZooView({
-  collection: gaZoo
-});
-zv.render();
+// var zv = new ZooView({
+//   collection: gaZoo
+// });
+// zv.render();
 
 gaZoo.add([
   { type: "Stink Badger" },
@@ -533,7 +534,7 @@ var av = new AnimalView({
 });
 // Think of the object that you pass when you instantiate a view as instance variables being passed from a controller into a view in Rails
 
-av.render();
+// av.render();
 
 var horse = gaZoo.findWhere({ type: "Horse" });
 var horseView = new AnimalView({
@@ -549,7 +550,7 @@ var ErrorView = Backbone.View.extend({
 });
 
 var ev = new ErrorView();
-ev.render();
+// ev.render();
 
 
 
@@ -558,3 +559,61 @@ ev.render();
 
 // PlaylistView
   // This should update if the collection of songs changes (add or remove)
+
+var Router = Backbone.Router.extend({
+  routes: {
+    '' : 'showZoo', // #
+    'animals' : 'showZoo', // #animals
+    'animals/:id' : 'showAnimal', // #animals/1, #animals/2
+    '*args': 'errorPage'
+  },
+
+  errorPage: function () {
+    var ev = new ErrorView();
+    ev.render();
+  },
+
+  showAnimal: function () {
+    var av = new AnimalView({
+      model: quokka
+    });
+    av.render();
+  },
+
+  showZoo: function () {
+    // What view do I need to show at this point?
+    // What things does that view need? (models, collections etc.)
+    // Call render on a new instance of that view, making sure it has got the data it needs
+    var zv = new ZooView({
+      collection: gaZoo
+    });
+    zv.render();
+  }
+});
+
+console.clear();
+
+var router = new Router();
+
+var goHome = function () {
+  // router.navigate( "client side path", should it trigger a function in the routes file );
+  router.navigate( "/", true );
+};
+
+var animalShowPage = function () {
+  router.navigate( "/animals/1", true );
+};
+
+var throwErrorPage = function () {
+  router.navigate( "/sakfnlaknflaskfn", true );
+};
+
+
+
+$(document).ready(function () {
+
+  Backbone.history.start();
+  // Start listening for hash-based URLs (hash fragments)
+  // Let the router interpret the URL and decide what view to show
+
+});
