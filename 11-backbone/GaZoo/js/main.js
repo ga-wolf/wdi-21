@@ -392,3 +392,36 @@ console.log(
   //   { title: "" },
   //   { title: "" }
   // ]); // It will turn these objects into instances of Movie
+
+console.clear();
+
+var GenericView = Backbone.View.extend({
+  el: "body",
+    // The target DOM node ( this.el, this.$el )
+      // The events are added within this
+
+  events: {
+    'click h1' : 'headingClicked'
+  },
+
+  headingClicked: function () {
+    alert("An h1 in the body tag was clicked");
+    this.$el.css("background", "hotpink");
+  },
+
+  initialize: function () {
+    console.log("A new GenericView was created");
+  },
+
+  render: function () {
+    // The keyword ` this ` refers to a particular instance of a view
+    // When you specify the ` el ` property, you get given two things:
+      // this.el - the pure DOM Node
+      // this.$el - the jQuery selected version of the DOM node
+      // Remember that the el property specifies a target (where the view should be loaded)
+    this.$el.html( "<h1>Hello World</h1>" );
+  }
+});
+
+var gv = new GenericView();
+gv.render();
