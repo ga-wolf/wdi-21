@@ -1,109 +1,225 @@
 // // class Movie
-// var Movie = Backbone.Model.extend({
-//   defaults: {
-//     title: "N/A",
-//     duration: 0,
-//     director: "N/A"
-//   },
-//
-//   initialize: function () {
-//     // The keyword ` this ` refers to the current instance of the model (the one that was just created)
-//
-//     this.on("change", function () {
-//       console.log("\tSomething changed");
-//     });
-//
-//     this.on("change:title", function () {
-//       console.log("\tThe title was changed");
-//     });
-//
-//     this.on("change:director change:duration", function () {
-//       console.log("\tThe director or duration changed");
-//     });
-//
-//     console.log( "A movie was created" );
-//   }
-// });
-//
-// var genericMovie = new Movie();
-//
-// // Movie.create()
-// var bestMovie = new Movie({
-//   name: "Satantango",
-//   duration: 532,
-//   director: "Bela Tarr"
-// });
-//
-// // Getters (Accessor Methods)
-// var title = bestMovie.get("name");
-// var director = bestMovie.get("director");
-// var duration = bestMovie.get("duration");
-//
-// console.log( title, director, duration );
-//
-// var theGrinch = new Movie({
-//   title: "The Grinch",
-//   primaryColour: "Green"
-// });
-//
-// var allGrinchAttributes = theGrinch.toJSON();
-// console.log( allGrinchAttributes );
-//
-// var almostBestMovie = new Movie({
-//   title: "Satan"
-// });
-//
-// almostBestMovie.set("title", "Satantango");
-// almostBestMovie.set({
-//   duration: 532,
-//   director: "Bela Tarr"
-// });
-//
-// var allAttrs = almostBestMovie.toJSON();
-// console.log( allAttrs );
-//
-// var m1 = new Movie();
-// var m2 = new Movie({ title: "Toy Story" });
-//
-// console.log( m1.toJSON() );
-// console.log( m2.toJSON() );
-//
-var BlogPost = Backbone.Model.extend({
+var Movie = Backbone.Model.extend({
   defaults: {
-    title: "",
-    content: ""
+    title: "N/A",
+    duration: 0,
+    director: "N/A"
   },
 
   initialize: function () {
-    console.log( "A new post was created" );
+    // The keyword ` this ` refers to the current instance of the model (the one that was just created)
+
     this.on("change", function () {
-      console.log("Something changed");
+      console.log("\tSomething changed");
     });
 
-    this.on("change:title", function ( blogPost ) {
-      var currentTitle = blogPost.get("title");
-      var previousTitle = blogPost.previousAttributes().title;
-      var warning = "The title changed from " + previousTitle + " to " + currentTitle;
-      console.warn( warning );
+    this.on("change:title", function () {
+      console.log("\tThe title was changed");
     });
 
-    this.on("change:title change:content", function () {
-      console.log("The title or the content changed");
+    this.on("change:director change:duration", function () {
+      console.log("\tThe director or duration changed");
     });
+
+    console.log( "A movie was created" );
   }
 });
 
-var p = new BlogPost();
-var p2 = new BlogPost();
 
-p.set({ title: "Hello World" });
-var title = p.get('title');
+var genericMovie = new Movie();
 
-var allAttrs = p2.toJSON();
-console.log( title, allAttrs );
+// Movie.create()
+var bestMovie = new Movie({
+  name: "Satantango",
+  duration: 532,
+  director: "Bela Tarr"
+});
 
-var bp = new BlogPost({ title: "Hello" });
-bp.set("title", "Hello World");
+// Getters (Accessor Methods)
+var title = bestMovie.get("name");
+var director = bestMovie.get("director");
+var duration = bestMovie.get("duration");
+
+console.log( title, director, duration );
+
+var theGrinch = new Movie({
+  title: "The Grinch",
+  primaryColour: "Green"
+});
+
+var allGrinchAttributes = theGrinch.toJSON();
+console.log( allGrinchAttributes );
+
+var almostBestMovie = new Movie({
+  title: "Satan"
+});
+
+almostBestMovie.set("title", "Satantango");
+almostBestMovie.set({
+  duration: 532,
+  director: "Bela Tarr"
+});
+
+var allAttrs = almostBestMovie.toJSON();
+console.log( allAttrs );
+
+var m1 = new Movie();
+var m2 = new Movie({ title: "Toy Story" });
+
+console.log( m1.toJSON() );
+console.log( m2.toJSON() );
+
+var Movies = Backbone.Collection.extend({
+  model: Movie,
+  initialize: function () {
+    console.log("A new collection of movies was created");
+  }
+});
+
+var myMovies = new Movies();
+
+var toyStory = new Movie({ title: "Toy Story" });
+var myCinema = new Movies( toyStory );
+
+var biggerCinema = new Movies([
+  genericMovie,
+  bestMovie,
+  theGrinch
+]);
+
+var newCinema = new Movies([
+  { title: "Jurassic Park" },
+  { title: "Jaws" },
+  { title: "I am legend" },
+  { title: "Godzilla" }
+]);
+
+console.log( newCinema.length );
+
+newCinema.add({
+  title: "The Man who knew Infinity"
+}); // Will convert this object into an instance of Movie
+
+var theBigLebowski = new Movie({
+  title: "The Big Lebowski"
+});
+newCinema.add( theBigLebowski );
+
+console.clear();
+
+newCinema.each(function ( movie ) {
+  var title = movie.get("title");
+  console.log( "The title of the current movie is " + title );
+});
+
+var ourMixedCollection = new Movies([
+  { title: "Movie One", goodMovie: false, tags: [ "comedy" ] },
+  { title: "Movie Two", goodMovie: true, tags: [ "horror" ] },
+  { title: "Movie Three", goodMovie: false, tags: [ "action" ] },
+  { title: "Movie Four", goodMovie: false, tags: [ "action" ] },
+  { title: "Movie Five", goodMovie: false, tags: [ "comedy", "action" ] },
+  { title: "S Movie", goodMovie: true, tags: [ "history" ] },
+  { title: "T Movie", goodMovie: false, tags: [ "comedy" ] },
+  { title: "A Movie", goodMovie: true, tags: [ "documentary" ] },
+  { title: "B Movie", goodMovie: false, tags: [ "comedy" ] },
+]);
+
+var allBadMovies = ourMixedCollection.where({
+  goodMovie: false
+});
+
+console.log( ourMixedCollection.length );
+ourMixedCollection.remove( allBadMovies );
+console.log( ourMixedCollection.length );
+
+var movieOne = new Movie({ title: "Movie One" });
+var movieTwo = new Movie({ title: "Movie Two" });
+var movieThree = new Movie({ title: "Movie Three" });
+
+var myMovies = new Movies();
+myMovies.add( movieOne );
+myMovies.add( movieTwo );
+myMovies.add( movieThree, { at: 0 } );
+
+console.log( myMovies.pluck("title") );
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+// var BlogPost = Backbone.Model.extend({
+//   defaults: {
+//     title: "",
+//     content: ""
+//   },
+//
+//   initialize: function () {
+//     console.log( "A new post was created" );
+//     this.on("change", function () {
+//       console.log("Something changed");
+//     });
+//
+//     this.on("change:title", function ( blogPost ) {
+//       var currentTitle = blogPost.get("title");
+//       var previousTitle = blogPost.previousAttributes().title;
+//       var warning = "The title changed from " + previousTitle + " to " + currentTitle;
+//       console.warn( warning );
+//     });
+//
+//     this.on("change:title change:content", function () {
+//       console.log("The title or the content changed");
+//     });
+//   }
+// });
+//
+// var p = new BlogPost();
+// var p2 = new BlogPost();
+//
+// p.set({ title: "Hello World" });
+// var title = p.get('title');
+//
+// var allAttrs = p2.toJSON();
+// console.log( title, allAttrs );
+//
+// var bp = new BlogPost({ title: "Hello" });
+// bp.set("title", "Hello World");
+//
+//
+// // Describe what a collection of BlogPosts looks like this - Blog
+//   // Add a function that will be run straight away
+//   // Specify what type of data is stored
+//   // Create a couple of collections:
+//     // One should be empty
+//     // One should have a single BlogPost
+//     // One should have lots of blog posts
+//       // This should be done with objects
+//   // Add a bunch of blog posts
+//   // Use underscore methods like .each, .where etc.
+//
+// var Blog = Backbone.Collection.extend({
+//   model: BlogPost,
+//   initialize: function () {
+//     console.log("A new blog was created");
+//   }
+// });
+//
+// var newBlog = new Blog();
+// var p1 = new BlogPost();
+// var otherBlog = new Blog( p1 );
+// var lotsOfBlogPosts = new Blog([
+//   { title: "Lorem ipsum" },
+//   { title: "Lorem ipsum 2" }
+// ]);
+//
+// otherBlog.add({ title: "LOREM IPSUM" });
+
+
 
 
 var Animal = Backbone.Model.extend({
@@ -134,6 +250,74 @@ var a2 = new Animal({ stripes: 1 });
 
 var kangaroo = new Animal({ type: "Kangaroo" });
 kangaroo.set({ type: "Giant Kangaroo" });
+
+console.clear();
+
+var Zoo = Backbone.Collection.extend({
+  model: Animal,
+  initialize: function () {
+    console.log( "A new zoo was created" );
+
+    this.on("add", function ( newAnimal ) {
+      var animalName = newAnimal.get("type");
+      var msg = "We just got a new " + animalName;
+      console.log( msg );
+    });
+
+    this.on("remove", function (animal) {
+      var lostAnimal = animal.get("type");
+      console.log( lostAnimal + " just left the zoo" );
+    });
+  }
+});
+
+var gaZoo = new Zoo();
+
+gaZoo.add( kangaroo );
+gaZoo.add([
+  { type: "Dumbo Octopus" },
+  { type: "Gerenuk" },
+  { type: "Japanese Spider Crab" }
+]);
+
+var animal = new Animal({
+  type: "Acanthonus Armatus"
+});
+gaZoo.add( animal );
+
+animal.set("type", "Bony-eared assfish");
+
+var assfish = gaZoo.findWhere({ type: "Bony-eared assfish" });
+gaZoo.remove( assfish );
+
+console.log(
+  gaZoo.pluck("type")
+);
+
+var sortedByType = gaZoo.sortBy("type");
+
+gaZoo.add([
+  { type: "Panda", incrediblyLazy: true }
+]);
+
+var panda = gaZoo.findWhere({ incrediblyLazy: true });
+
+gaZoo.remove( panda );
+
+console.log(
+  gaZoo.pluck("type")
+);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -193,3 +377,18 @@ kangaroo.set({ type: "Giant Kangaroo" });
   // this.on("change", function () {});
   // this.on("change:key", function () {});
   // this.on("change:key1 change:key2", function () {});
+
+// Creating a collection
+
+  // var Movies = Backbone.Collection.extend({ ... });
+
+// Creating an instance
+
+  // var myMovies = new Movies();
+  // var myMovies = new Movies( movie );
+  // var myMovies = new Movies([ movieOne, movieTwo ]);
+  // var myMovies = new Movies([
+  //   { title: "" },
+  //   { title: "" },
+  //   { title: "" }
+  // ]); // It will turn these objects into instances of Movie
