@@ -30,7 +30,7 @@ postsCollection.fetch().done(function () {
 
   postsCollection.each(function ( post ) {
     var title = post.get("title");
-    console.log( title );
+    // console.log( title );
   });
 
 });

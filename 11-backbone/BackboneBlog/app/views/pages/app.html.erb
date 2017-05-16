@@ -1,2 +1,19 @@
-<h1>Pages#app</h1>
-<p>Find me in app/views/pages/app.html.erb</p>
+<div id="app">
+  <h1>THIS IS WHERE BACKBONE SHOULD BE LOADED</h1>
+  <h3>A little bit like a single-page application's yield statement</h3>
+  <p>This is where the dynamic data will go</p>
+</div>
+
+<script type="html/template" id="AppViewTemplate">
+  <div id="appView">
+    <h1>My Blog with all my feelings</h1>
+    <nav>
+      <a href="#">All Posts</a>
+      <a href="#">A Post</a>
+    </nav>
+    <hr>
+    <ul id="posts">
+      <li>All Posts should be printed out there</li>
+    </ul>
+  </div>
+</script>
