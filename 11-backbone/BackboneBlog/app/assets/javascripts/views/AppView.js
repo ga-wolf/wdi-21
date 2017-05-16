@@ -11,12 +11,33 @@ app.AppView = Backbone.View.extend({
 
     var templateMarkup = $("#AppViewTemplate").html();
     this.$el.html( templateMarkup );
+
+    this.collection.each(function ( post ) {
+
+      var plv = new app.PostListView({
+        model: post
+      });
+      plv.render();
+
+    });
   }
 });
 
-$(document).ready(function () {
-
-  var appView = new app.AppView();
-  appView.render();
-
-});
+// $(document).ready(function () {
+//
+//   // Whenever we instantiate a View...
+//     // What data does it need? (a model or a collection)
+//     // Where is the template? Or are we trying to create elements on the fly?
+//
+//   var posts = new app.Posts([
+//     { title: "Post 1" },
+//     { title: "Post 2" },
+//     { title: "Post 3" },
+//   ]);
+//
+//   var appView = new app.AppView({
+//     collection: posts
+//   });
+//   appView.render();
+//
+// });

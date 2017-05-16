@@ -24,16 +24,16 @@ var postsCollection = new app.Posts();
 
 // postsCollection.fetch();
 
-postsCollection.fetch().done(function () {
-
-  // console.log( postsCollection.length );
-
-  postsCollection.each(function ( post ) {
-    var title = post.get("title");
-    // console.log( title );
-  });
-
-});
+// postsCollection.fetch().done(function () {
+//
+//   // console.log( postsCollection.length );
+//
+//   postsCollection.each(function ( post ) {
+//     var title = post.get("title");
+//     // console.log( title );
+//   });
+//
+// });
 
 // When we create a new instance of app.Posts, one of the things that is provided to us is an AJAX interface to a given URL
   // When I call .fetch(), it assumes that it is making a GET request asking for JSON from whatever ` url ` is provided
