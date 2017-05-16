@@ -1,0 +1,26 @@
+<div id="app">
+  <h1>This is where Backbone should be loaded</h1>
+</div>
+
+<!--
+  Make sure the type is something other than text/javascript
+  Give it an ID that you will remember
+-->
+
+<script type="html/template" id="AppViewTemplate">
+  <h1>Our Secrets Application</h1>
+  <hr/>
+
+  <div id="secretForm">
+    An instance of the SecretInputView should go here
+  </div>
+
+  <ul id="secrets">
+    <!-- Many instances of the SecretView should go here -->
+  </ul>
+</script>
+
+<script type="html/template" id="SecretInputViewTemplate">
+  <textarea placeholder="Tell me all of your secrets"></textarea>
+  <button>Submit</button>
+</script>
