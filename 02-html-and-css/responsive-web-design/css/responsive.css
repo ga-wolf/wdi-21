@@ -1,0 +1,41 @@
+body {
+  background: ghostwhite;
+  font-family: monospace;
+}
+
+img {
+  display: block;
+  margin: 10px 0;
+}
+
+@media (max-width: 1280px) and (min-width: 841px) {
+
+  .hide-on-tablet {
+    display: none;
+  }
+
+}
+
+@media (max-width: 840px) {
+
+  .hide-on-mobile {
+    display: none;
+  }
+  
+}
+
+/*
+DESKTOP
+  Above 1280
+
+TABLET
+  Between 840 and 1280
+  HIDE .hide-on-tablet
+
+PHONE
+  Beneath 840
+  HIDE .hide-on-mobile
+
+Use display none for the above
+If you get it working, change the font size with REM based on the screen size
+*/

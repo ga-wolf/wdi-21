@@ -1,0 +1,93 @@
+html, body {
+  font-size: 10px;
+  transition: font-size 0.3s;
+  margin: 0;
+}
+
+.container {
+  font-size: 20px;
+}
+
+.chain {
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 3rem; /* 10px * 3 === 30px */
+}
+
+h2 {
+  font-size: 2.5rem; /* 10px * 2.5 === 25px */
+}
+
+h4 {
+  font-size: 2rem; /* HTML Font Size * 2 === _____ */
+}
+
+img {
+  width: 50rem; /* HTML Font Size * 50 === 500px */
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+body {
+  background: hotpink;
+}
+
+/*
+  The only time to apply these styles is if the width is 300px or over (the minimum width to apply these styles)
+
+  width >= 300px
+*/
+@media (min-width: 300px) {
+
+  body {
+    background: lightslategray;
+  }
+
+}
+
+@media (min-width: 600px) {
+
+  body {
+    background: chartreuse;
+  }
+
+}
+
+
+
+
+/*
+h1
+
+by default, it should have the colour #FF0000
+if the page is under 300px wide, the colour should be #00FF00
+if the page is under 650px wide, the colour should be #0000FF
+
+(try and add a transition on the colour change)
+*/
+
+h1 {
+  color: #FF0000;
+}
+
+/* width <= 650px && width >= 301px */
+@media (max-width: 650px) and (min-width: 301px) {
+
+  h1 {
+    color: #0000FF;
+  }
+
+}
+
+/* width <= 300px */
+@media (max-width: 300px) {
+
+  h1 {
+    color: #00FF00;
+  }
+
+}

@@ -8,13 +8,39 @@
 <body>
 
   <div class="container">
-    <!-- div.column.lg-col-3*4 -->
+
+    <h1 class="lg-hide">I should be shown on mobile and tablet</h1>
+    <h2 class="sm-hide">I should be shown on desktop and tablet</h2>
+    <h3 class="md-hide">I should be shown on desktop and mobile</h3>
+    <h4 class="lg-hide md-hide">I should only be shown on mobile</h4>
+
+    <div class="row">
+      <div class="column lg-col-3 md-col-6 sm-col-12"></div>
+    </div>
+
+    <div class="row">
+      <div class="column lg-col-12 md-col-9 sm-col-3"></div>
+      <div class="column lg-col-12 md-col-3 sm-col-9"></div>
+    </div>
+
+    <div class="row">
+      <div class="column lg-col-6 lg-col-offset-3"></div>
+    </div>
+
+    <div class="row">
+      <div class="column lg-col-2 lg-col-offset-10"></div>
+    </div>
+    <!-- lg-hide , md-hide and sm-hide -->
+
+  </div>
+
+
+  <!-- <div class="container">
     <div class="column lg-col-3"></div>
     <div class="column lg-col-3"></div>
     <div class="column lg-col-3"></div>
     <div class="column lg-col-3"></div>
 
-    <!-- div.column.lg-col-4*3 -->
     <div class="column lg-col-4"></div>
     <div class="column lg-col-4"></div>
     <div class="column lg-col-4"></div>
@@ -40,7 +66,7 @@
       <div class="column lg-col-3"></div>
     </div>
 
-  </div>
+  </div> -->
 
 </body>
 </html>
