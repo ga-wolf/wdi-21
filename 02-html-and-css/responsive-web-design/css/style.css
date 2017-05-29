@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+}
+
+.container {
+  min-height: 100vh;
+  width: 80%;
+  max-width: 960px;
+  margin: 0 auto;
+  background: gray;
+  overflow: hidden;
+  padding: 5px 10px;
+}
+
+.bill {
+  display: block;
+  margin: 10px auto;
+
+  width: 50%;
+  max-width: 500px;
+  min-width: 200px;
+}
+
+.vw {
+  width: 50vw;
+  border: 1px solid black;
+  height: 20px;
+}
+
+.vh {
+  height: 75vh;
+  border: 2px solid black;
+}
+
+.landingPage {
+  background-image: url(https://unsplash.it/g/1500/1200?random);
+  background-position: center;
+  background-size: cover;
+
+  height: 100vh;
+  width: 100%;
+}
+
+.details {
+  border: 3px solid red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*transform: translateX(-50%);
+  transform: translateY(-50%);*/
+  margin: 0;
+}

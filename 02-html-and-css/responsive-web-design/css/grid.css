@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+}
+
+.container {
+  overflow: auto;
+  background: ghostwhite;
+  padding: 10px 20px;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.row {
+  clear: both;
+}
+
+.column {
+  box-sizing: border-box;
+  float: left;
+  min-height: 50px;
+  border: 1px solid black;
+}
+
+.lg-col-3 {
+  width: 25%;
+}
+
+.lg-col-4 {
+  width: calc( 100% / 3 );
+  /*width: 33.33333333333333333333333%;*/
+}
+
+.lg-col-6 {
+  width: 50%;
+}
+
+.lg-col-9 {
+  width: 75%;
+}
+
+.lg-col-12 {
+  width: 100%;
+}
