@@ -16,16 +16,31 @@ body {
 }
 
 .column {
+  -webkit-transition: width 0.5s;
+  -moz-transition: width 0.5s;
+  -ms-transition: width 0.5s;
+  -o-transition: width 0.5s;
   transition: width 0.5s;
+
   border-radius: 5px;
   background: limegreen;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
   box-sizing: border-box;
+
   float: left;
   min-height: 50px;
   border: 1px solid black;
 }
 
 .lg-col-2 {
+  width: -webkit-calc(100% / 12 * 2);
+  width: -moz-calc(100% / 12 * 2);
+  width: -ms-calc(100% / 12 * 2);
+  width: -o-calc(100% / 12 * 2);
   width: calc(100% / 12 * 2);
 }
 

@@ -1,0 +1,22 @@
+// Variables
+$primary-color: #333;
+$font-stack: 'Operator Mono', monospace;
+
+body {
+  color: $primary-color;
+  font-family: $font-stack;
+}
+
+img.bill2 {
+  border: 1px solid $primary-color;
+}
+
+.container {
+  border: 2px solid $primary-color;
+}
+
+// Nesting
+
+// Mixins
+
+// Extends
