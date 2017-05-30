@@ -17,6 +17,67 @@ img.bill2 {
 
 // Nesting
 
+.container {
+  background: green;
+
+  img {
+    width: 100px;
+  }
+}
+
+footer {
+  background: ghostwhite;
+  color: lightslategray;
+
+  ul {
+    list-style-type: none;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
 // Mixins
 
+@mixin border-radius ( $radius ) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.box {
+  background: black;
+  width: 50px;
+  height: 50px;
+  @include border-radius( 50% );
+}
+
+img {
+  @include border-radius( 5px );
+}
+
 // Extends
+
+.message {
+  width: 200px;
+  height: 50px;
+  border: 5px solid black;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+}
+
+.warning {
+  @extend .message;
+  border-color: orange;
+}
