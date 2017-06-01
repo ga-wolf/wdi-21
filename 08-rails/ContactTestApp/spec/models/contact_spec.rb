@@ -9,13 +9,26 @@ require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
 
+  it "has a valid factory" do
+    c = FactoryGirl.build :contact
+    expect( c ).to be_valid
+  end
+
+  it "has three phone numbers" do
+    # Create a contact
+    contact = FactoryGirl.create :contact
+    # Make sure that there are three phones
+      # expect( ... ).to eq( ... )
+    expect( contact.phones.length ).to eq(3)
+  end
+
   it "is valid with a first_name, last_name and an email" do
-    contact = Contact.new(first_name: "Bill", last_name: "Murray", email: "bill@ga.co")
+    contact = FactoryGirl.build :contact
     expect( contact ).to be_valid
   end
 
   it "is invalid without a first_name" do
-    contact = Contact.new(first_name: nil, last_name: "Murray", email: "bill@ga.co")
+    contact = FactoryGirl.build :contact, first_name: nil
     # We know that there is something called contact.errors.full_messages. This is an array of all error messages
       # The error message for presence is "First name can't be blank"
 
@@ -28,7 +41,7 @@ RSpec.describe Contact, type: :model do
 
   it "is invalid without an email" do
     # Create a new contact, making sure it doesn't have an email
-    contact = Contact.new first_name: "Bill", last_name: "Murray", email: nil
+    contact = FactoryGirl.build :contact, email: nil
     # Check to see if the contact is valid (this will generate error messages, if any)
     contact.valid?
     # Make sure that an error message exists for email
@@ -37,8 +50,8 @@ RSpec.describe Contact, type: :model do
   end
 
   it "is invalid with a duplicate email address" do
-    Contact.create first_name: "Bill", last_name: "Murray", email: "bill@ga.co"
-    c2 = Contact.new first_name: "B", last_name: "M", email: "bill@ga.co"
+    FactoryGirl.create :contact, email: "bill@ga.co"
+    c2 = FactoryGirl.build :contact, email: "bill@ga.co"
     c2.valid? # Generate error messages (if necessary)
     errors = c2.errors.full_messages
     expect(errors).to include("Email has already been taken")
@@ -48,6 +61,30 @@ RSpec.describe Contact, type: :model do
     contact = Contact.create first_name: "Bill", last_name: "Murray", email: "bill@ga.co"
 
     expect( contact.full_name() ).to eq("Bill Murray")
+  end
+
+  describe "should filter last name by letter" do
+    # This will run before any it statement
+    before(:each) do
+      @smith = Contact.create(first_name: "John", last_name: "Smith", email: "jsmith@ga.co")
+      @jones = Contact.create(first_name: "Tom", last_name: "Jones", email: "tjones@ga.co")
+      @jabba = Contact.create(first_name: "The Hutt", last_name: "Jabba", email: "jabba@ga.co")
+    end
+
+    context "with matching letters" do
+      it "returns a sorted array of results that match" do
+        sorted_contacts = Contact.sort_by_last_name("J")
+        expect( sorted_contacts ).to eq [ @jabba, @jones ]
+      end
+    end
+
+    context "with non-matching letters" do
+      it "omits contacts that don't match" do
+        sorted_contacts = Contact.sort_by_last_name "J"
+        expect(sorted_contacts).not_to include(@smith)
+      end
+    end
+
   end
 
 end
