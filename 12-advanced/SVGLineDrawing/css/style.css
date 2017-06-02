@@ -2,8 +2,27 @@ body {
   background: ghostwhite;
 }
 
+@keyframes draw_lines {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+svg:hover #line {
+  stroke-dashoffset: 0;
+}
+
 #line {
   stroke-width: 5;
   stroke: rgb( 255, 0, 0 );
   stroke-dasharray: 1430;
+  stroke-dashoffset: 1430;
+  transition: stroke-dashoffset 1s;
+
+
+
+  /* animation name | duration | timing function | delay | iteration count*/
+  /*animation: draw_lines 2s linear 0.2s;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;*/
 }
