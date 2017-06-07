@@ -130,6 +130,8 @@ Other rules:
 - You must have a render method
   - It must return some markup
 - It must only return a single element! That element can contain other elements though.
+- If you need to add a class to an element, use className in JSX (because class means something to JS).
+  - e.g. ` <div className="something"></div> `
 
 *The Basic Boilerplate for a Component file*
 
