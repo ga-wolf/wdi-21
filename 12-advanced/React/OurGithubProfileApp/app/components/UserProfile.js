@@ -1,18 +1,28 @@
 import React from "react";
+import Loading from "./Loading";
 
 class UserProfile extends React.Component {
   render() {
-    return (
-      <div className="userProfileComponent">
-        <h5>Stats</h5>
-        <p>Followers:</p>
-        <p>Following:</p>
-        <p>Public Repositories:</p>
-        <p>Public Gists</p>
-      </div>
-    );
+    if (this.props.user) {
+      const {
+        followers,
+        following,
+        public_gists: publicGists,
+        public_repos: publicRepos
+      } = this.props.user;
+      return (
+        <div className="userProfileComponent">
+          <h5>Stats</h5>
+          <p>Followers: {followers}</p>
+          <p>Following: {following}</p>
+          <p>Public Repositories: {publicRepos}</p>
+          <p>Public Gists: {publicGists}</p>
+        </div>
+      );
+    } else {
+      return <Loading />;
+    }
   }
 }
 
 export default UserProfile;
-// Render this component in Details.js

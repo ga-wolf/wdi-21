@@ -4,7 +4,7 @@ class Loading extends Component {
   render() {
     return (
       <div className="loadingComponent">
-        Loading...
+        <img src="http://i.imgur.com/jZSGX.gif" width="200" height="200" />
       </div>
     );
   }

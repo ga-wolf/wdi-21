@@ -1,20 +1,30 @@
-// React is an object
-// Get that object from the react node_modules package
-// Create a variable called Component that references React.Component (object destructuring)
 import React, { Component } from "react";
+import Loading from "./Loading";
 
 class UserRepositories extends Component {
   render() {
-    return (
-      <div className="userRepositoriesComponent">
-        <h5>Repositories</h5>
-        <ul>
-          <li>Repository One</li>
-          <li>Repository Two</li>
-          <li>...</li>
-        </ul>
-      </div>
-    );
+    if (this.props.repos) {
+      const repos = this.props.repos.map(repo => {
+        return (
+          <li key={repo.id}>
+            <a href={repo.html_url} target="_blank">
+              {repo.name}
+            </a>
+          </li>
+        );
+      });
+
+      return (
+        <div className="userRepositoriesComponent">
+          <h5>Repositories</h5>
+          <ul>
+            {repos}
+          </ul>
+        </div>
+      );
+    } else {
+      return <Loading />;
+    }
   }
 }
 

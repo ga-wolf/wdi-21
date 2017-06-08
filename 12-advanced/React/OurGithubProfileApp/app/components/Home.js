@@ -2,13 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class Home extends React.Component {
-  constructor() {
-    super();
-    // Make sure every time pickRandomStudent is called, the this keyword refers to the instance of the Home component (we have access to state, props etc.)
+  constructor(props) {
+    super(props);
     this.pickRandomStudent = this.pickRandomStudent.bind(this);
   }
   pickRandomStudent() {
-    console.log("Pick Random Student");
+    const wdi21 = [
+      "PhilG112",
+      "fimac",
+      "katiepetersonn",
+      "lukemico",
+      "matt2c",
+      "jamesnugent00",
+      "johnstonchristo",
+      "Xtian03",
+      "lynly",
+      "Bijay-Panthi",
+      "SimoTr84"
+    ];
+    const randomIndex = Math.floor(Math.random() * wdi21.length);
+    const chosenOne = wdi21[randomIndex];
+    const url = `/details/${chosenOne}`;
+    this.props.history.push(url);
   }
   render() {
     return (
