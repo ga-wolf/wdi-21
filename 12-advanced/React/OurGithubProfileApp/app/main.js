@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Home from "./components/Home";
-import Search from "./components/Search";
+import Routes from "./config/Routes";
 
 const USER_DATA = {
   name: "Jeremy Ashkenas",
@@ -9,4 +8,4 @@ const USER_DATA = {
   imageURL: "http://fillmurray.com/200/200"
 };
 
-ReactDOM.render(<Search />, document.querySelector("#app"));
+ReactDOM.render(<Routes />, document.querySelector("#app"));

@@ -8,6 +8,14 @@ class Search extends React.Component {
     };
     // Make sure that any time the handleUserInput function is called, the this keyword represents the Search component itself (rather than null)
     this.handleUserInput = this.handleUserInput.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+  handleSearch(event) {
+    event.preventDefault();
+    // Print out what the user typed in
+    // Make sure to use data (use the component itself to access this)
+    const search = this.state.searchTerm;
+    console.log(`Search term: ${search}`);
   }
   handleUserInput(event) {
     // Knowing that a component is just a representation of data (state)
@@ -19,7 +27,7 @@ class Search extends React.Component {
     return (
       <div className="searchComponent">
         <h3>Search for a user</h3>
-        <form>
+        <form onSubmit={this.handleSearch}>
           <input
             type="text"
             onChange={this.handleUserInput}
