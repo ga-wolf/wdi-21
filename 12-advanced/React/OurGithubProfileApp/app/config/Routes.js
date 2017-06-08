@@ -18,6 +18,7 @@ const Routes = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/search" component={Search} />
+          <Route path="/details/:username" component={Details} />
           <Route component={NotFound} />
         </Switch>
 

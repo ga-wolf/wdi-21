@@ -1,8 +1,9 @@
 import React from "react";
 
 class Search extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    // Make sure all props are available through this.props
+    super(props);
     this.state = {
       searchTerm: ""
     };
@@ -12,10 +13,9 @@ class Search extends React.Component {
   }
   handleSearch(event) {
     event.preventDefault();
-    // Print out what the user typed in
-    // Make sure to use data (use the component itself to access this)
     const search = this.state.searchTerm;
-    console.log(`Search term: ${search}`);
+    const url = `/details/${search}`;
+    this.props.history.push(url);
   }
   handleUserInput(event) {
     // Knowing that a component is just a representation of data (state)
