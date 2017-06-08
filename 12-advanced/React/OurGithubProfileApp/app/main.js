@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import Avatar from "./components/Avatar";
 import Home from "./components/Home";
+import Search from "./components/Search";
 
 const USER_DATA = {
   name: "Jeremy Ashkenas",
@@ -9,4 +9,4 @@ const USER_DATA = {
   imageURL: "http://fillmurray.com/200/200"
 };
 
-ReactDOM.render(<Home />, document.querySelector("#app"));
+ReactDOM.render(<Search />, document.querySelector("#app"));
